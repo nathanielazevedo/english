@@ -1,5 +1,11 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .App {
   text-align: center;
+  max-width: 100vw !important;
 }
 
 .App-header {
@@ -11,7 +17,8 @@
   justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
-  padding-left: 1rem;
+  padding-left: 10px;
+  max-width: 100vw;
 }
 
 .card {
@@ -25,10 +32,34 @@
   padding-left: 10px;
 }
 
+.counts {
+  margin-top: 10px;
+  width: 95vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
 .pro {
   color: #61dafb;
 }
 
 .p {
   font-size: small;
+}
+
+.false {
+  border-left: solid red 1px !important;
+}
+
+.true {
+  border-left: solid green 1px !important;
+}
+
+.trueNum {
+  color: green;
+}
+
+.falseNum {
+  color: red;
 }
