@@ -92,9 +92,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div className="counts">
-          <span className="falseNum">&nbsp;{counts[1]}</span>,
-          <span className="trueNum">&nbsp;{counts[0]}</span>,
-          <span>&nbsp;{counts[2]}</span>
+          <span className="title">Cali's Words</span>
+          <div className="stack">
+            <span className="falseNum">{counts[1]}</span>
+            <span className="trueNum">{counts[0]}</span>
+            <span>{counts[2]}</span>
+          </div>
         </div>
         {words.map((e) => {
           return <Card key={e.word} word={e} />;

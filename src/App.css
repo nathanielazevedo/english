@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  background-color: #282c34;
 }
 
 .App {
@@ -24,20 +25,32 @@
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: flex-start;
-  height: 100px;
-  margin-top: 35px;
+  height: 130px;
+  margin-bottom: 30px;
+  margin-top: 5px;
   border-left: solid white 1px;
   padding-left: 10px;
+  width: 94vw;
 }
 
 .counts {
-  margin-top: 10px;
+  padding-top: 10px;
   width: 95vw;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 25px;
+  border-bottom: 1px solid white;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
 }
 
 .pro {
