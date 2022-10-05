@@ -7,10 +7,11 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding-left: 1rem;
 }
 
 .card {
@@ -19,6 +20,9 @@
   justify-content: center;
   align-items: flex-start;
   height: 100px;
+  margin-top: 35px;
+  border-left: solid white 1px;
+  padding-left: 10px;
 }
 
 .pro {
