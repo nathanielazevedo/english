@@ -4,10 +4,10 @@ import nephew from "./audio/nephew.m4a";
 import family from "./audio/family.m4a";
 import grocery from "./audio/grocery.m4a";
 import amazon from "./audio/amazon.m4a";
+import california from "./audio/california.m4a";
+import CountStack from "./CountStack";
 
 function App() {
-  const [unMastered, setUnMastered] = useState(0);
-  const [mastered, setMastered] = useState(0);
   const words = [
     {
       word: "nephew",
@@ -44,6 +44,13 @@ function App() {
       description: "Sorry, I cannot pronounce that word.",
       status: localStorage.getItem("pronounce"),
     },
+    {
+      word: "California",
+      pronounciation: "cal-e-for-nia",
+      audio: california,
+      description: "I live in California.",
+      status: localStorage.getItem("california"),
+    },
   ];
 
   const counts = words.reduce(
@@ -60,28 +67,33 @@ function App() {
     [0, 0, 0]
   );
 
-  const setStatus = (name) => {
+  const setBigStatus = (name) => {
     const old = localStorage.getItem(name);
     if (old === "false") {
       localStorage.setItem(name, true);
-      setMastered((o) => o + 1);
-      setUnMastered((o) => o - 1);
     } else {
       localStorage.setItem(name, false);
-      setUnMastered((o) => o + 1);
-      setMastered((o) => o - 1);
     }
   };
 
   const Card = (props) => {
+    const booleanStatus = props.word.status === "false" ? false : true;
+    const [status, setStatus] = useState(booleanStatus);
+
     return (
-      <div className={props.word.status + " card"}>
-        <div onClick={() => setStatus(props.word.word)}>
+      <div
+        className={`${status} card`}
+        onClick={() => {
+          setBigStatus(props.word.word);
+          setStatus((o) => !o);
+        }}
+      >
+        <div>
           {props.word.word}
           <span className="pro"> | {props.word.pronounciation}</span>
         </div>
         <p className="p">{props.word.description}</p>
-        <audio controls>
+        <audio controls onClick={(evt) => evt.stopPropagation()}>
           <source src={props.word.audio} type="audio/mp4" />
         </audio>
       </div>
@@ -94,9 +106,9 @@ function App() {
         <div className="counts">
           <span className="title">Cali's Words</span>
           <div className="stack">
-            <span className="falseNum">{counts[1]}</span>
-            <span className="trueNum">{counts[0]}</span>
-            <span>{counts[2]}</span>
+            <span className="falseNum">' </span>
+            <span className="trueNum">' </span>
+            <span>' </span>
           </div>
         </div>
         {words.map((e) => {
